@@ -1,8 +1,8 @@
 package main
 
 func main() {
-	// Printex()
+	Printex()
 	// Scanex1()
 	// Scanex2()
-	Scanex3()
+	// Scanex3()
 }
