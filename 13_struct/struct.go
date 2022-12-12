@@ -39,17 +39,25 @@ func main() {
 	}
 	fmt.Println(house5)
 
-	// 일부 필드 초기화
-	var house6 House = House{Size: 28, Price: 9.80}
+	var house6 House = House{
+		Type:    "아파트",
+		Address: "서울시",
+		Price:   9.80,
+		Size:    28,
+	}
 	fmt.Println(house6)
 
-	var house7 House = House{
-		Size: 28, Price: 9.80, // 닫는 중괄호와 다른 줄에 있으면 쉼표
-	}
+	// 일부 필드 초기화
+	var house7 House = House{Size: 28, Price: 9.80}
 	fmt.Println(house7)
 
-	house8 := House{Size: 28,
-		Type: "아파트"}
+	var house8 House = House{
+		Size: 28, Price: 9.80, // 닫는 중괄호와 다른 줄에 있으면 쉼표
+	}
 	fmt.Println(house8)
+
+	house9 := House{Size: 28,
+		Type: "아파트"}
+	fmt.Println(house9)
 
 }

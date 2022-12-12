@@ -24,7 +24,8 @@ func main() {
 
 	fmt.Println(user.name, user.id, user.level)
 	fmt.Println(
-		vipUser.name,
+		vipUser.User.name,
+		vipUser.name, // . 한 번만 이용해 접근 가능
 		vipUser.id,
 		vipUser.level, // 현재 변수 타입에 해당하는 필드 우선
 		// vipUser.level,
