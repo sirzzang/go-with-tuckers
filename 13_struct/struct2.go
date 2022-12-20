@@ -9,7 +9,7 @@ type User struct {
 }
 
 type VIPUser struct {
-	UserInfo User // Embedded Type
+	userInfo User // Embedded Type
 	VIPLevel int
 	Price    int
 }
