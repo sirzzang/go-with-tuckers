@@ -12,7 +12,7 @@ func main() {
 	publicpkg.PublicFunc()
 	// publicpkg.privateFunc()
 
-	var myint publicpkg.MyInt = 10 // TODO: 왜 MyInt라고 하면 안 되고 pkg명에서 접근해야 하지?
+	var myint publicpkg.MyInt = 10
 	fmt.Println(myint)
 
 	mystruct := publicpkg.MyStruct{Age: 28}
