@@ -15,7 +15,7 @@ func UserInput() int {
 
 	_, err := fmt.Scanln(&num)
 	if err != nil {
-		log.Fatalf("scanner error: %v", err)
+		log.Fatalf("숫자만 입력하세요.: %v", err)
 		stdin.ReadString('\n') // empty stdin buffer
 	}
 	return num
