@@ -33,6 +33,7 @@ func main() {
 
 	slice1 = append(slice1, -1)
 	fmt.Println(slice1)
-	fmt.Println(slice2) // slice2도 변함
+	fmt.Println(slice1Ptr.Data, slice1Ptr.Len, slice1Ptr.Cap) // 동일한 배열을 가리킴
+	fmt.Println(slice2)                                       // slice2도 변함
 
 }
