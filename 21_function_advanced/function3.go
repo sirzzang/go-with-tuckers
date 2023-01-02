@@ -8,6 +8,7 @@ import (
 func main() {
 
 	f, err := os.Create("test.txt") // 항상 새로 만듦
+
 	if err != nil {
 		fmt.Println("Failed to create test.txt file: ", err)
 	}
