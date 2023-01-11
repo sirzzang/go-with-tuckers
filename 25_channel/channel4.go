@@ -5,35 +5,33 @@ import (
 	"sync"
 )
 
-func square(wg *sync.WaitGroup, ch chan int) {
-
-	// square until channel is empty
-	for n := range ch {
-		fmt.Println(ch)
-		fmt.Printf("square from channel: %d\n", n*n)
-	}
-
-	// notify work done
-	wg.Done()
-
-}
-
 func main() {
 	var wg sync.WaitGroup
 
-	// make channel
-	ch := make(chan int, 2) // buffered channel
+	// 크기가 있는 채널
+	ch := make(chan int, 2)
 
-	// add square goroutine
 	wg.Add(1)
 	go square(&wg, ch)
 
-	// send data to channel
+	// 채널에 데이터 전송
 	for i := 0; i < 10; i++ {
 		ch <- i
 	}
 
-	// wait for goroutine to be done
+	// square 고루틴 종료 대기
 	wg.Wait()
+
+}
+
+// 좀비 고루틴
+func square(wg *sync.WaitGroup, ch chan int) {
+
+	// 버퍼가 있는 경우도 마찬가지로 계속 대기
+	for n := range ch {
+		fmt.Printf("square from channel: %d\n", n*n)
+	}
+
+	wg.Done()
 
 }

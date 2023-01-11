@@ -5,32 +5,34 @@ import (
 	"sync"
 )
 
-func square(wg *sync.WaitGroup, ch chan int) {
-	for n := range ch {
-		fmt.Printf("square from channel: %d\n", n*n)
-	}
-	wg.Done()
-}
-
 func main() {
 
 	var wg sync.WaitGroup
 
-	// make channel
-	ch := make(chan int) // empty channel
+	ch := make(chan int)
 
-	// add square goroutine
 	wg.Add(1)
 	go square(&wg, ch)
 
-	// send data to channel
+	// 채널에 데이터전송
 	for i := 0; i < 10; i++ {
 		ch <- i
 	}
 
-	// close channel
+	// 데이터 전송을 마치면 채널을 닫음
 	close(ch)
 
-	// wait for goroutine to be done
+	// square 고루틴 종료 대기
 	wg.Wait()
+}
+
+func square(wg *sync.WaitGroup, ch chan int) {
+
+	// 채널이 비어 있는 상태에서 닫히게 되면 for range 문 빠져 나감
+	for n := range ch {
+		fmt.Printf("square from channel: %d\n", n*n)
+	}
+
+	// 종료
+	wg.Done()
 }
